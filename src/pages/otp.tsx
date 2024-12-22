@@ -1,18 +1,32 @@
 import { Button } from "@/components/ui/button";
 import { PinInput } from "@/components/ui/pin-input";
 import { toaster } from "@/components/ui/toaster";
-import { Box, Center, Flex, Input, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Flex,
+  Input,
+  Separator,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 const Home = () => {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleClick = () => {
-    router.push("/");
-    toaster.create({
-      title: "Success 🚀",
-      description: "You have successfully verified your account",
-    });
+    setIsLoading(true);
+
+    setTimeout(() => {
+      router.push("/");
+      toaster.create({
+        title: "Success 🚀",
+        description: "You have successfully verified your account",
+      });
+    }, 3000);
   };
 
   return (
@@ -28,7 +42,7 @@ const Home = () => {
         w={400}
         border="1px solid rgba(255, 255, 255, 0.063)"
       >
-        <Center mb={4}>
+        <Center>
           <Text
             fontWeight="bold"
             fontSize={"2xl"}
@@ -36,7 +50,9 @@ const Home = () => {
             Demo Playwright
           </Text>
         </Center>
+        <Separator my={5} />
         <Center
+          mb={5}
           display={"flex"}
           flexDirection={"column"}
         >
@@ -48,20 +64,28 @@ const Home = () => {
             We have sent a verification code to your email
           </Text>
         </Center>
-        <VStack
-          spaceY={3}
-          w="full"
-          my={3}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleClick();
+          }}
         >
-          <PinInput />
-
-          <Button
-            w="200px"
-            onClick={handleClick}
+          <VStack
+            spaceY={5}
+            w="full"
+            my={3}
           >
-            Verify
-          </Button>
-        </VStack>
+            <PinInput />
+
+            <Button
+              loading={isLoading}
+              w="200px"
+              type="submit"
+            >
+              Verify
+            </Button>
+          </VStack>
+        </form>
       </Box>
     </Flex>
   );
