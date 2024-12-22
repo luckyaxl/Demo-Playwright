@@ -27,6 +27,9 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
   },
 
+  // Match all files ending with .spec.ts
+  // testMatch: ["**/*.spec.ts"],
+
   use: {
     // Use baseURL so to make navigations relative.
     // More information: https://playwright.dev/docs/api/class-testoptions#test-options-base-url
