@@ -4,7 +4,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "test:report": "playwright test --reporter=html",
+    "test:show": "playwright show-report",
+    "test:ui": "playwright test --ui",
+    "test:codegen": "playwright codegen"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.2.3",
