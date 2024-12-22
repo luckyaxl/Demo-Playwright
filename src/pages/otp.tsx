@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Field } from "@/components/ui/field";
 import { PinInput } from "@/components/ui/pin-input";
 import { toaster } from "@/components/ui/toaster";
 import {
@@ -26,7 +27,7 @@ const Home = () => {
         title: "Success 🚀",
         description: "You have successfully verified your account",
       });
-    }, 3000);
+    }, 1500);
   };
 
   return (
@@ -75,7 +76,7 @@ const Home = () => {
             w="full"
             my={3}
           >
-            <PinInput />
+            <PinInput otp />
 
             <Button
               loading={isLoading}
