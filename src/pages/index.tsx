@@ -14,7 +14,7 @@ const Home = () => {
         borderRadius="lg"
         shadow="2xl"
         h={250}
-        w={[300, 400]} // Responsive width: adjusts for smaller screens
+        w={[300, 400]}
         border="1px solid rgba(255, 255, 255, 0.1)"
       >
         <Center mb={6}>

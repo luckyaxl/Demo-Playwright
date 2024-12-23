@@ -27,7 +27,7 @@ const Home = () => {
         title: "Success 🚀",
         description: "You have successfully verified your account",
       });
-    }, 1500);
+    }, 800);
   };
 
   return (
